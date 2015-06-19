@@ -86,7 +86,9 @@ def which_operation
     num1 = gets.chomp
     puts "What number would you like to use as the base for the logarithm?"
     base = gets.chomp
-    if num1.to_i.to_s == num1 && base.to_i.to_s == base
+    if num1.to_i < 0 || base.to_i < 0 
+      puts "Sorry. Please try again with numbers you can ACTUALLY use for logarithms. How about positive ones? That would be great, thanks."
+    elsif num1.to_i.to_s == num1 && base.to_i.to_s == base
       puts log(num1, base)
     else
       puts "Sorry. Please try again with valid numeric entries."
@@ -94,7 +96,9 @@ def which_operation
   elsif operation == "square root"
     puts "What number would you like to square root?"
     num1 = gets.chomp
-    if num1.to_i.to_s == num1
+    if num1.to_i < 0
+      puts "Sorry. Please try again with a number you can ACTUALLY SQUARE ROOT. How about a positive one? That would be great, thanks."
+    elsif num1.to_i.to_s == num1
       puts sqrt(num1)
     else
       puts "Sorry. Please try again with a valid numeric entry."
@@ -106,6 +110,8 @@ def which_operation
     power = gets.chomp 
     if base.to_i.to_s == base && power.to_i.to_s == power
       puts exponent(base, power)
+    else 
+      puts "Sorry. Please try again with valid numeric entries."
     end
   else 
     puts "Not a valid operation."
